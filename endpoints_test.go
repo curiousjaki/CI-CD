@@ -36,8 +36,8 @@ func TestWsEndpoint(t *testing.T) {
 		t.Errorf("handler returned wrong status code: got %v want %v",
 			status, http.StatusOK)
 	}
-	if rr.Body.String() != "Hello World" {
+	if rr.Body.String() != "Hello CNAE SoSe2025" {
 		t.Errorf("handler returned unexpected body: got %v want %v",
-			rr.Body.String(), "Hello World")
+			rr.Body.String(), "Hello CNAE SoSe2025")
 	}
 }
