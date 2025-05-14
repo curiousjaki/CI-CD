@@ -1,0 +1,9 @@
+apiVersion: v2
+name: CI-CD
+description: A minimal Helm chart exposing a Docker service on port 8080
+version: 0.1.0
+
+sources:
+  - https://github.com/curiousjaki/CI-CD
+
+dependencies: []
