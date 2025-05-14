@@ -8,6 +8,19 @@ on:
     branches: [ "main" ]
 
 jobs:
+  check_env:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check ENV variable
+      run: |
+        if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
+          echo "TEST_STATUS=SUCCESS" >> $GITHUB_ENV
+          exit 0
+        else
+          echo "TEST_STATUS=FAIL" >> $GITHUB_ENV
+          exit 1
+        fi
+
   build:
     runs-on: ubuntu-latest
     steps:

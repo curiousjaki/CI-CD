@@ -23,6 +23,13 @@ jobs:
 
     - name: Get
       run: go get
-        
-    - name: Build
-      run: go build  
+
+    - name: Build and set ENV variable
+      run: |
+        if go build; then
+          echo "BUILD_STATUS=SUCCESS" >> $GITHUB_ENV
+        else
+          echo "BUILD_STATUS=FAIL" >> $GITHUB_ENV
+        fi
+    
+    
