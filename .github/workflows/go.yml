@@ -52,8 +52,8 @@ jobs:
         else
           echo "![Test Status](https://img.shields.io/badge/tests-failing-red)" > media/test_status.md
         fi
-        
-    - name: Upload Test Result
+
+    - name: Upload Badge
       uses: actions/upload-artifact@v4
       with:
         name: Upload Test Badge
