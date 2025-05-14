@@ -57,5 +57,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Upload Test Badge
-        path: media/test_results.json
+        path: media/test_status.md
     
