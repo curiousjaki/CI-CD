@@ -28,10 +28,34 @@ jobs:
       run: go build
 
     - name: Test
-      run: go test -json > TestResults-${{ matrix.go-version }}.json
+      run: go test -json > media/test_results.json
 
     - name: Upload Test Result
       uses: actions/upload-artifact@v4
       with:
         name: Upload Test Badge
-        path: media/TestResults.json
+        path: media/test_results.json
+
+    - name: Check Test Results
+      id: check_tests
+      run: |
+        if grep -q 'FAIL' media/test_results.json; then
+          echo "TEST_STATUS=FAIL" >> $GITHUB_ENV
+        else
+          echo "TEST_STATUS=PASS" >> $GITHUB_ENV
+        fi
+    
+    - name: Update README Badge
+      run: |
+        if [ "$TEST_STATUS" == "PASS" ]; then
+          echo "![Test Status](https://img.shields.io/badge/tests-passing-brightgreen)" > media/test_status.md
+        else
+          echo "![Test Status](https://img.shields.io/badge/tests-failing-red)" > media/test_status.md
+        fi
+        
+    - name: Upload Test Result
+      uses: actions/upload-artifact@v4
+      with:
+        name: Upload Test Badge
+        path: media/test_results.json
+    
