@@ -20,24 +20,6 @@ jobs:
 
     - name: Get
       run: go get
-        
-    - name: Build
-      run: go build
 
     - name: Test
-      run: go test -json > media/test_results.json
-
-    - name: Upload Test Result
-      uses: actions/upload-artifact@v4
-      with:
-        name: Upload Test Results
-        path: media/test_results.json
-
-    - name: Check Test Results
-      id: check_tests
-      run: |
-        if grep -q 'FAIL' media/test_results.json; then
-          exit 1
-        else
-          exit 0
-        fi
+      run: go test
