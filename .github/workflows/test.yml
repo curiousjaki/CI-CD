@@ -8,21 +8,19 @@ on:
     branches: [ "main" ]
 
 jobs:
-  check_env:
+
+  test:
     runs-on: ubuntu-latest
     steps:
-    - name: Check ENV variable
+    - uses: actions/checkout@v4
+
+    - name: Check Build Success
       run: |
         if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
           exit 0
         else
           exit 1
         fi
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
 
     - name: Set up Go
       uses: actions/setup-go@v4
