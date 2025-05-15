@@ -5,18 +5,38 @@
 
 ### Deploy via Helm
 
+Install Helm on your machine: [https://helm.sh/docs/intro/install/](https://helm.sh/docs/intro/install/)  
+Or install it from a package repository of your choice, e.g., `brew`, `apt`.
+
+```bash
 helm upgrade --install ci-go-example ./helm --namespace ci-go-example --create-namespace
+```
 
 #### Uninstall via Helm
 
+```bash
 helm uninstall ci-go-example --namespace ci-go-example
 kubectl delete namespace ci-go-example
+```
 
 ### Deploy via Terraform
 
-From the selected Terraform Folder
+Install Terraform on your machine: [https://developer.hashicorp.com/terraform/install](https://developer.hashicorp.com/terraform/install)  
+Or install it from a package repository of your choice, e.g., `brew`, `apt`.
+
+From the selected Terraform folder:
+
+```bash
+terraform init
+terraform plan
+terraform apply
+```
 
 #### Uninstall via Terraform
+
+```bash
+terraform destroy -auto-approve
+```
 
 ## Directory Structure
 
