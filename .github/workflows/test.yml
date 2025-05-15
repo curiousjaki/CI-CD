@@ -14,14 +14,12 @@ jobs:
     - name: Check ENV variable
       run: |
         if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
-          echo "TEST_STATUS=SUCCESS" >> $GITHUB_ENV
           exit 0
         else
-          echo "TEST_STATUS=FAIL" >> $GITHUB_ENV
           exit 1
         fi
 
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
