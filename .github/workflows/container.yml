@@ -12,7 +12,7 @@ on:
     branches: [ "main" ]
   # This creates an environment variable called `IMAGE_NAME ` with the value `ghtoken_product_demo`.
 env:
-  IMAGE_NAME: ciphersmaug/ci-go-project
+  IMAGE_NAME: ci-go-project
 #
 jobs:
   # This pushes the image to GitHub Packages.

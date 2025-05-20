@@ -1,7 +1,7 @@
 # values.yaml
 replicaCount: 1
 image:
-  repository: ghcr.io/curiousjaki/ciphersmaug/ci-go-project
+  repository: ghcr.io/curiousjaki/ci-go-project
   tag: latest
   pullPolicy: IfNotPresent
 
